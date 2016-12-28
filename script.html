@@ -1,0 +1,18 @@
+<script>
+	(function(W, D, counterId, delay) {
+		if (!W.addEventListener)
+			return;
+		delay = delay * 1000;
+		var t = new Date();
+		var fn = function(e) {
+			if (new Date() - t < delay)
+				return;
+			t = new Date();
+			if (window['yaCounter' + counterId] != undefined)
+				window['yaCounter' + counterId].reachGoal('timeKnock');
+		};
+		D.addEventListener('click', fn);
+		D.addEventListener('keydown', fn);
+		W.addEventListener('scroll', fn);
+	})(window, document, 'XXXXXXXX', 5);
+</script>
